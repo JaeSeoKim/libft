@@ -6,7 +6,7 @@
 #    By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/24 20:10:49 by jaeskim           #+#    #+#              #
-#    Updated: 2020/10/08 21:30:09 by jaeskim          ###   ########.fr        #
+#    Updated: 2020/10/09 01:37:49 by jaeskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,30 +16,30 @@ AR = ar
 ARFLAGS = crs
 
 CC = gcc
-CFLAG = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 RM = rm
-RMFLAG = -f
+RMFLAGS = -f
 
 INC_DIR = ./include
 SRC_DIR = ./src
 OBJ_DIR = ./obj
 
 SRCS = $(wildcard $(SRC_DIR)/*.c)
-
 OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
+INCS = $(wildcard $(INC_DIR)/*.h)
 
 all : $(NAME)
 
 clean :
-	$(RM) $(RMFLAG) $(OBJS) $(OBJS_BONUS)
+	$(RM) $(RMFLAGS) $(OBJS)
 
 fclean : clean
-	$(RM) $(RMFLAG) $(NAME)
+	$(RM) $(RMFLAGS) $(NAME)
 
 re : fclean all
 
-$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(INCS)
 	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
 
