@@ -6,7 +6,7 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 20:02:24 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/09/29 19:35:03 by jaeskim          ###   ########.fr       */
+/*   Updated: 2020/10/08 21:12:36 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ char				*ft_strnstr(const char *big,
 								const char *little,
 								size_t blen);
 char				*ft_strdup(const char *s);
+char				*ft_strndup(const char *s, size_t n);
 int					ft_atoi(const char *nptr);
 /*
 ** Type

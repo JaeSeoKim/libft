@@ -6,7 +6,7 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/27 01:02:02 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/09/28 03:48:43 by jaeskim          ###   ########.fr       */
+/*   Updated: 2020/10/08 21:11:46 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,6 @@ static size_t	ft_count_word(char const *s, char c)
 			s++;
 	}
 	return (count);
-}
-
-static char		*ft_strndup(const char *s, size_t n)
-{
-	size_t	i;
-	char	*result;
-
-	if (!(result = (char *)malloc(sizeof(char) * (n + 1))))
-		return (0);
-	i = 0;
-	while (i < n)
-	{
-		result[i] = s[i];
-		i++;
-	}
-	result[i] = 0;
-	return (result);
 }
 
 static void		ft_free_arr(char **s, int i)
