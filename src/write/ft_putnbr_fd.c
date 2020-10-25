@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/25 21:30:33 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/09/25 21:34:55 by jaeskim          ###   ########.fr       */
+/*   Created: 2020/09/27 08:00:43 by jaeskim           #+#    #+#             */
+/*   Updated: 2020/10/26 00:34:37 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** ft_strlen - calculate the length of a string
+** ft_putnbr_fd - Outputs the integer 'n' to the given file descriptor.
 */
 
-size_t	ft_strlen(const char *s)
+void		ft_putnbr_fd(int n, int fd)
 {
-	size_t len;
+	char	*num;
 
-	len = 0;
-	while (*s++)
-		len++;
-	return (len);
+	num = ft_itoa(n);
+	ft_putstr_fd(num, fd);
+	free(num);
 }

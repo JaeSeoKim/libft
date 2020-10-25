@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lst_struct.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/27 23:36:53 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/09/30 19:45:27 by jaeskim          ###   ########.fr       */
+/*   Created: 2020/10/26 00:45:32 by jaeskim           #+#    #+#             */
+/*   Updated: 2020/10/26 00:48:09 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_LST_STRUCT_H
+# define FT_LST_STRUCT_H
 
-/*
-** ft_lstadd_front - Adds the element 'new' at the beginning of the list.
-*/
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+typedef struct		s_list
 {
-	new->next = *lst;
-	*lst = new;
-}
+	void			*content;
+	struct s_list	*next;
+}					t_list;
+
+#endif

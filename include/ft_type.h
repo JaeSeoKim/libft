@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_type.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/27 07:42:47 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/09/30 19:43:31 by jaeskim          ###   ########.fr       */
+/*   Created: 2020/10/26 00:47:17 by jaeskim           #+#    #+#             */
+/*   Updated: 2020/10/26 00:50:04 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_TYPE_H
+# define FT_TYPE_H
 
-/*
-** ft_putstr_fd - Outputs the string 's' to the given file descriptor.
-*/
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
 
-void	ft_putstr_fd(char *s, int fd)
-{
-	write(fd, s, ft_strlen(s));
-}
+int		ft_isalpha(int c);
+int		ft_isdigit(int c);
+int		ft_isalnum(int c);
+int		ft_isascii(int c);
+int		ft_isprint(int c);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
+
+#endif
