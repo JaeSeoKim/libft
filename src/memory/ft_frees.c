@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_write.h                                         :+:      :+:    :+:   */
+/*   ft_frees.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/26 00:48:55 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/10/26 16:18:53 by jaeskim          ###   ########.fr       */
+/*   Created: 2020/10/24 18:35:42 by jaeskim           #+#    #+#             */
+/*   Updated: 2020/10/26 03:19:45 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_WRITE_H
-# define FT_WRITE_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <limits.h>
+void	ft_frees(int cnt, ...)
+{
+	va_list ap;
 
-# include "libft.h"
-
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-
-#endif
+	va_start(ap, cnt);
+	while (cnt)
+	{
+		free(va_arg(ap, void *));
+		--cnt;
+	}
+	va_end(ap);
+}
