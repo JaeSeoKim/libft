@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_base.c                                  :+:      :+:    :+:   */
+/*   ft_bigint_type.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/24 19:56:00 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/11/16 16:50:33 by jaeskim          ###   ########.fr       */
+/*   Created: 2020/11/06 12:33:04 by jaeskim           #+#    #+#             */
+/*   Updated: 2020/11/24 21:30:50 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_BIGINT_TYPE_H
+# define FT_BIGINT_TYPE_H
 
-char	*ft_convert_base(
-	t_ll num,
-	const char *base_set,
-	int base)
+typedef struct	s_bigint
 {
-	char	*tmp;
-	char	*result;
+	int			*num;
+	int			len;
+}				t_bigint;
 
-	if (num < 0)
-	{
-		tmp = ft_convert_base_unsigned(-num, base_set, base);
-		result = ft_strjoin("-", tmp);
-		free(tmp);
-		return (result);
-	}
-	else
-		return (ft_convert_base_unsigned(num, base_set, base));
-}
+#endif

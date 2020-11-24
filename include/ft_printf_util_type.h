@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_base.c                                  :+:      :+:    :+:   */
+/*   ft_printf_util_type.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/24 19:56:00 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/11/16 16:50:33 by jaeskim          ###   ########.fr       */
+/*   Created: 2020/11/24 21:31:37 by jaeskim           #+#    #+#             */
+/*   Updated: 2020/11/24 21:37:28 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_UTIL_TYPE_H
+# define FT_PRINTF_UTIL_TYPE_H
 
-char	*ft_convert_base(
-	t_ll num,
-	const char *base_set,
-	int base)
+typedef struct	s_flag
 {
-	char	*tmp;
-	char	*result;
+	char	dash;
+	char	zero;
+	char	blank;
+	char	plus;
+	char	hash;
+}				t_flag;
 
-	if (num < 0)
-	{
-		tmp = ft_convert_base_unsigned(-num, base_set, base);
-		result = ft_strjoin("-", tmp);
-		free(tmp);
-		return (result);
-	}
-	else
-		return (ft_convert_base_unsigned(num, base_set, base));
-}
+typedef struct	s_format
+{
+	t_flag	flag;
+	int		width;
+	char	visit_precision;
+	int		precision;
+	int		h_count;
+	int		l_count;
+	char	**out;
+	char	**ptr;
+	int		*cnt;
+}				t_format;
+
+#endif

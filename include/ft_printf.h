@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_struct.h                                    :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/26 00:45:32 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/10/26 00:48:09 by jaeskim          ###   ########.fr       */
+/*   Created: 2020/11/24 21:31:37 by jaeskim           #+#    #+#             */
+/*   Updated: 2020/11/24 21:32:39 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LST_STRUCT_H
-# define FT_LST_STRUCT_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <limits.h>
-
-typedef struct		s_list
-{
-	void			*content;
-	struct s_list	*next;
-}					t_list;
+int		ft_printf(const char *format, ...);
+int		ft_sprintf(char *out, const char *format, ...);
 
 #endif

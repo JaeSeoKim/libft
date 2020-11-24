@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_base.c                                  :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/24 19:56:00 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/11/16 16:50:33 by jaeskim          ###   ########.fr       */
+/*   Created: 2020/10/03 17:49:05 by jaeskim           #+#    #+#             */
+/*   Updated: 2020/11/24 22:18:02 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-char	*ft_convert_base(
-	t_ll num,
-	const char *base_set,
-	int base)
-{
-	char	*tmp;
-	char	*result;
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
 
-	if (num < 0)
-	{
-		tmp = ft_convert_base_unsigned(-num, base_set, base);
-		result = ft_strjoin("-", tmp);
-		free(tmp);
-		return (result);
-	}
-	else
-		return (ft_convert_base_unsigned(num, base_set, base));
-}
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
+
+/*
+** windows, linux doesn't have OPEN_MAX Constants
+** OPEN_MAX value from Mac Os
+*/
+
+# ifndef OPEN_MAX
+#  define OPEN_MAX	10240
+# endif
+
+int		get_next_line(int fd, char **line);
+
+#endif

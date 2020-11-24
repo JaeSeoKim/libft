@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_base.c                                  :+:      :+:    :+:   */
+/*   ft_bigint.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/24 19:56:00 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/11/16 16:50:33 by jaeskim          ###   ########.fr       */
+/*   Created: 2020/11/06 12:42:28 by jaeskim           #+#    #+#             */
+/*   Updated: 2020/11/24 21:30:53 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_BIGINT_H
+# define FT_BIGINT_H
 
-char	*ft_convert_base(
-	t_ll num,
-	const char *base_set,
-	int base)
-{
-	char	*tmp;
-	char	*result;
+# include "libft.h"
+# include "ft_bigint_type.h"
 
-	if (num < 0)
-	{
-		tmp = ft_convert_base_unsigned(-num, base_set, base);
-		result = ft_strjoin("-", tmp);
-		free(tmp);
-		return (result);
-	}
-	else
-		return (ft_convert_base_unsigned(num, base_set, base));
-}
+t_bigint	*ft_bigint_new(int64_t num);
+void		ft_bigint_del(t_bigint *target);
+char		*ft_bigint_to_str(t_bigint *bigint);
+t_bigint	*ft_bigint_add(t_bigint *a, t_bigint *b);
+t_bigint	*ft_bigint_multiply(t_bigint *a, int num);
+
+#endif

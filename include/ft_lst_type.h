@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_base.c                                  :+:      :+:    :+:   */
+/*   ft_lst_type.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/24 19:56:00 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/11/16 16:50:33 by jaeskim          ###   ########.fr       */
+/*   Created: 2020/10/26 00:45:32 by jaeskim           #+#    #+#             */
+/*   Updated: 2020/10/27 21:41:47 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_LST_TYPE_H
+# define FT_LST_TYPE_H
 
-char	*ft_convert_base(
-	t_ll num,
-	const char *base_set,
-	int base)
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
+
+typedef struct		s_list
 {
-	char	*tmp;
-	char	*result;
+	void			*content;
+	struct s_list	*next;
+}					t_list;
 
-	if (num < 0)
-	{
-		tmp = ft_convert_base_unsigned(-num, base_set, base);
-		result = ft_strjoin("-", tmp);
-		free(tmp);
-		return (result);
-	}
-	else
-		return (ft_convert_base_unsigned(num, base_set, base));
-}
+#endif

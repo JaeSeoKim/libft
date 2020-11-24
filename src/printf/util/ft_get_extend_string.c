@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_base.c                                  :+:      :+:    :+:   */
+/*   ft_get_extend_string.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/24 19:56:00 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/11/16 16:50:33 by jaeskim          ###   ########.fr       */
+/*   Created: 2020/10/19 22:07:13 by jaeskim           #+#    #+#             */
+/*   Updated: 2020/11/24 21:44:19 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "ft_printf_util.h"
 
-char	*ft_convert_base(
-	t_ll num,
-	const char *base_set,
-	int base)
+wint_t	ft_get_extend_c(va_list ap, t_format *pf)
 {
-	char	*tmp;
-	char	*result;
+	if (pf->l_count == 1)
+		return (wint_t)(va_arg(ap, int));
+	return (char)(va_arg(ap, int));
+}
 
-	if (num < 0)
+char	*ft_get_extend_s(va_list ap, t_format *pf)
+{
+	char *tmp;
+
+	if (pf->l_count == 1)
 	{
-		tmp = ft_convert_base_unsigned(-num, base_set, base);
-		result = ft_strjoin("-", tmp);
-		free(tmp);
-		return (result);
+		return (ft_n_encoding_utf8(va_arg(ap, wchar_t *), \
+			pf->visit_precision ? pf->precision : -5));
 	}
-	else
-		return (ft_convert_base_unsigned(num, base_set, base));
+	tmp = va_arg(ap, char *);
+	return (ft_strdup(tmp ? tmp : "(null)"));
 }

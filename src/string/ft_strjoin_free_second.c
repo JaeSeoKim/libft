@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_base.c                                  :+:      :+:    :+:   */
+/*   ft_strjoin_free_second.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/24 19:56:00 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/11/16 16:50:33 by jaeskim          ###   ########.fr       */
+/*   Created: 2020/09/26 21:53:15 by jaeskim           #+#    #+#             */
+/*   Updated: 2020/11/03 12:21:05 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_convert_base(
-	t_ll num,
-	const char *base_set,
-	int base)
+char	*ft_strjoin_free_second(char const *s1, char const *s2)
 {
-	char	*tmp;
+	size_t	len1;
+	size_t	len2;
 	char	*result;
 
-	if (num < 0)
-	{
-		tmp = ft_convert_base_unsigned(-num, base_set, base);
-		result = ft_strjoin("-", tmp);
-		free(tmp);
-		return (result);
-	}
-	else
-		return (ft_convert_base_unsigned(num, base_set, base));
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	if (!(result = (char *)malloc(sizeof(char) + (len1 + len2 + 1))))
+		return (0);
+	ft_memcpy(result, s1, len1);
+	ft_memcpy(result + len1, s2, len2);
+	result[len1 + len2] = '\0';
+	ft_frees(1, s2);
+	return (result);
 }

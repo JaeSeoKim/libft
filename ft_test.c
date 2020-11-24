@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_base.c                                  :+:      :+:    :+:   */
+/*   ft_test.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/24 19:56:00 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/11/16 16:50:33 by jaeskim          ###   ########.fr       */
+/*   Created: 2020/11/24 22:22:28 by jaeskim           #+#    #+#             */
+/*   Updated: 2020/11/24 22:44:08 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_convert_base(
-	t_ll num,
-	const char *base_set,
-	int base)
+int		main(void)
 {
-	char	*tmp;
-	char	*result;
+	char	*line;
+	int		fd;
 
-	if (num < 0)
+	fd = open("readme.md", O_RDONLY);
+
+	while (get_next_line(fd, &line))
 	{
-		tmp = ft_convert_base_unsigned(-num, base_set, base);
-		result = ft_strjoin("-", tmp);
-		free(tmp);
-		return (result);
+		ft_printf("%s\n", line);
+		free(line);
 	}
-	else
-		return (ft_convert_base_unsigned(num, base_set, base));
+	ft_printf("%s\n", line);
+	free(line);
 }

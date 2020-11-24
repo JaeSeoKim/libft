@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_base.c                                  :+:      :+:    :+:   */
+/*   ft_math.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/24 19:56:00 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/11/16 16:50:33 by jaeskim          ###   ########.fr       */
+/*   Created: 2020/10/26 19:56:02 by jaeskim           #+#    #+#             */
+/*   Updated: 2020/11/06 13:17:58 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_MATH_H
+# define FT_MATH_H
 
-char	*ft_convert_base(
-	t_ll num,
-	const char *base_set,
-	int base)
-{
-	char	*tmp;
-	char	*result;
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdarg.h>
+# include <limits.h>
 
-	if (num < 0)
-	{
-		tmp = ft_convert_base_unsigned(-num, base_set, base);
-		result = ft_strjoin("-", tmp);
-		free(tmp);
-		return (result);
-	}
-	else
-		return (ft_convert_base_unsigned(num, base_set, base));
-}
+long double	ft_pow(long double a, long double n);
+int			ft_max(int a, int b);
+
+#endif

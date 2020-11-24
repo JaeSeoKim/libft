@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_base.c                                  :+:      :+:    :+:   */
+/*   ft_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/24 19:56:00 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/11/16 16:50:33 by jaeskim          ###   ########.fr       */
+/*   Created: 2020/10/14 18:24:57 by jaeskim           #+#    #+#             */
+/*   Updated: 2020/11/24 21:51:56 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "ft_printf_util.h"
 
-char	*ft_convert_base(
-	t_ll num,
-	const char *base_set,
-	int base)
+int	ft_print(char **out, const char *format, va_list ap)
 {
-	char	*tmp;
-	char	*result;
+	int		ctmp;
+	int		cnt;
+	char	*format_ptr;
 
-	if (num < 0)
+	cnt = 0;
+	format_ptr = (char *)format;
+	while (*format_ptr)
 	{
-		tmp = ft_convert_base_unsigned(-num, base_set, base);
-		result = ft_strjoin("-", tmp);
-		free(tmp);
-		return (result);
+		if (*format_ptr == '%')
+		{
+			format_ptr++;
+			if ((ctmp = ft_init_parsing(out, &format_ptr, ap, &cnt)) == -1)
+				return (-1);
+			cnt += ctmp;
+		}
+		else
+		{
+			ft_putchar_out(out, *format_ptr++);
+			cnt++;
+		}
 	}
-	else
-		return (ft_convert_base_unsigned(num, base_set, base));
+	return (cnt);
 }

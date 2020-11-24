@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_base.c                                  :+:      :+:    :+:   */
+/*   ft_dtoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/24 19:56:00 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/11/16 16:50:33 by jaeskim          ###   ########.fr       */
+/*   Created: 2020/11/02 21:15:58 by jaeskim           #+#    #+#             */
+/*   Updated: 2020/11/17 05:28:53 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "ft_dtoa_util.h"
 
-char	*ft_convert_base(
-	t_ll num,
-	const char *base_set,
-	int base)
+char	*ft_dtoa(double n, int precision, char spec)
 {
-	char	*tmp;
-	char	*result;
+	union u_double	num;
 
-	if (num < 0)
+	num.d = n;
+	if (num.bit.exponent == FT_DBL_EXP_NAN)
 	{
-		tmp = ft_convert_base_unsigned(-num, base_set, base);
-		result = ft_strjoin("-", tmp);
-		free(tmp);
-		return (result);
+		if (num.bit.significand == 0)
+			return (ft_strdup(num.bit.sign ? "-inf" : "inf"));
+		return (ft_strdup("nan"));
 	}
-	else
-		return (ft_convert_base_unsigned(num, base_set, base));
+	if (spec == 'g')
+		return (ft_dtoa_g(num, precision));
+	if (spec == 'e')
+		return (ft_dtoa_e(num, precision));
+	return (ft_dtoa_f(num, precision));
 }

@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_base.c                                  :+:      :+:    :+:   */
+/*   ft_convert_base_custom.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 19:56:00 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/11/16 16:50:33 by jaeskim          ###   ########.fr       */
+/*   Updated: 2020/11/24 21:43:50 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "ft_printf_util.h"
 
-char	*ft_convert_base(
-	t_ll num,
+char	*ft_convert_base_custom(
+	unsigned long long int num,
 	const char *base_set,
-	int base)
+	int base,
+	t_format *pf)
 {
-	char	*tmp;
-	char	*result;
-
-	if (num < 0)
-	{
-		tmp = ft_convert_base_unsigned(-num, base_set, base);
-		result = ft_strjoin("-", tmp);
-		free(tmp);
-		return (result);
-	}
+	if (num == 0 && pf->precision == 0 && pf->visit_precision == 1)
+		return (ft_strdup(""));
 	else
 		return (ft_convert_base_unsigned(num, base_set, base));
 }

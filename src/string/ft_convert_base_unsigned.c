@@ -6,13 +6,13 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 19:56:00 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/10/26 03:22:42 by jaeskim          ###   ########.fr       */
+/*   Updated: 2020/11/19 01:34:12 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_count_digist(long long int n, int base)
+static size_t	ft_count_digist(t_ull n, int base)
 {
 	size_t count;
 
@@ -26,7 +26,7 @@ static size_t	ft_count_digist(long long int n, int base)
 }
 
 char			*ft_convert_base_unsigned(
-	unsigned long long int num,
+	t_ull num,
 	const char *base_set,
 	int base)
 {

@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_base.c                                  :+:      :+:    :+:   */
+/*   ft_bigint_to_str.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/24 19:56:00 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/11/16 16:50:33 by jaeskim          ###   ########.fr       */
+/*   Created: 2020/11/06 15:06:16 by jaeskim           #+#    #+#             */
+/*   Updated: 2020/11/07 18:19:21 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_convert_base(
-	t_ll num,
-	const char *base_set,
-	int base)
+char	*ft_bigint_to_str(t_bigint *bigint)
 {
-	char	*tmp;
+	int		i;
 	char	*result;
 
-	if (num < 0)
+	if (!(result = malloc(sizeof(char) * (bigint->len + 1))))
+		return (0);
+	i = 0;
+	while (i < bigint->len)
 	{
-		tmp = ft_convert_base_unsigned(-num, base_set, base);
-		result = ft_strjoin("-", tmp);
-		free(tmp);
-		return (result);
+		result[i] = bigint->num[bigint->len - 1 - i] + '0';
+		++i;
 	}
-	else
-		return (ft_convert_base_unsigned(num, base_set, base));
+	result[bigint->len] = 0;
+	return (result);
 }

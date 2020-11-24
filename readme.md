@@ -1,5 +1,7 @@
 # Libft
 
+[![jaeskim's 42 stats](https://badge42.herokuapp.com/api/stats/jaeskim)](https://github.com/JaeSeoKim/badge42)
+
 > 일부 C 표준 함수와 추가적인 함수들을  구현한 Library 입니다.
 >
 > It is a library that provides some C standard functions and some additional functions.
