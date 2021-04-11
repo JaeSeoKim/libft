@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin_free.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/25 21:35:14 by jaeskim           #+#    #+#             */
-/*   Updated: 2021/03/19 04:59:25 by jaeskim          ###   ########.fr       */
+/*   Created: 2020/09/26 21:53:15 by jaeskim           #+#    #+#             */
+/*   Updated: 2020/12/02 22:36:25 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-** ft_strlcpy - size-bounded string copying and concatenation
-*/
-
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+char	*ft_strjoin_free(char const *s1, char const *s2, int check)
 {
-	size_t	srclen;
+	char	*result;
 
-	srclen = ft_strlen(src);
-	if (srclen + 1 < size)
-	{
-		ft_memcpy(dest, src, srclen);
-		dest[srclen] = '\0';
-	}
-	else if (size != 0)
-	{
-		ft_memcpy(dest, src, size - 1);
-		dest[size - 1] = '\0';
-	}
-	return (srclen);
+	result = ft_strjoin(s1, s2);
+	if (check & 1)
+		free((char *)s1);
+	if (check & 2)
+		free((char *)s2);
+	return (result);
 }

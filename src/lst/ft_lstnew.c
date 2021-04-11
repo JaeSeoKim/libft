@@ -6,7 +6,7 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/27 23:27:57 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/09/28 00:30:49 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/19 04:53:21 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*result;
 
-	if (!(result = malloc(sizeof(t_list))))
+	result = malloc(sizeof(t_list));
+	if (result == NULL)
 		return (0);
 	result->content = content;
 	result->next = 0;

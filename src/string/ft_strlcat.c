@@ -6,7 +6,7 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 22:01:48 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/09/30 19:42:16 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/19 06:44:09 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	size_t destlen;
-	size_t srclen;
+	size_t	destlen;
+	size_t	srclen;
 
 	srclen = ft_strlen(src);
-	if ((destlen = ft_strlen(dest)) > size)
-		destlen = size;
+	destlen = ft_strlen(dest);
+	((destlen > size) && (destlen = size));
 	if (destlen == size)
 		return (size + srclen);
 	if (srclen < size - destlen)

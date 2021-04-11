@@ -6,7 +6,7 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/03 17:49:05 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/11/24 22:18:02 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/19 04:36:20 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,12 @@
 #  define BUFFER_SIZE 1
 # endif
 
-/*
-** windows, linux doesn't have OPEN_MAX Constants
-** OPEN_MAX value from Mac Os
-*/
-
-# ifndef OPEN_MAX
-#  define OPEN_MAX	10240
-# endif
+typedef struct s_gnl
+{
+	int			fd;
+	char		*line;
+	void		*next;
+}				t_gnl;
 
 int		get_next_line(int fd, char **line);
 

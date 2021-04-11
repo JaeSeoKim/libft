@@ -6,7 +6,7 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 12:13:28 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/09/27 02:40:41 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/19 06:44:39 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,5 @@
 
 char	*ft_strdup(const char *s)
 {
-	size_t	slen;
-	char	*result;
-
-	slen = ft_strlen(s);
-	if (!(result = (char *)malloc(sizeof(char) * (slen + 1))))
-		return (0);
-	slen = 0;
-	while (s[slen])
-	{
-		result[slen] = s[slen];
-		slen++;
-	}
-	result[slen] = '\0';
-	return (result);
+	return (ft_strndup(s, ft_strlen(s)));
 }

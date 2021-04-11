@@ -6,7 +6,7 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 16:37:32 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/09/27 08:21:40 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/19 06:50:32 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** value that fits into the ASCII character set.
 */
 
-int		ft_isascii(int c)
+int	ft_isascii(int c)
 {
 	return (c >= 0 && c < 128);
 }

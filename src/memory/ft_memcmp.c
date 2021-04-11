@@ -6,7 +6,7 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 06:21:07 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/09/25 08:26:06 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/19 04:57:38 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	const unsigned char *s1p;
-	const unsigned char *s2p;
+	const unsigned char	*s1p;
+	const unsigned char	*s2p;
 
 	s1p = (const unsigned char *)s1;
 	s2p = (const unsigned char *)s2;

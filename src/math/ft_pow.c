@@ -6,7 +6,7 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 19:59:36 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/11/06 12:55:59 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/19 04:57:29 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 long double	ft_pow(long double a, long double n)
 {
-	long double result;
+	long double	result;
 
 	result = a;
 	while (n-- > 1)

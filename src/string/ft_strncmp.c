@@ -6,7 +6,7 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 09:18:57 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/09/26 09:55:10 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/19 06:41:19 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned char u1;
-	unsigned char u2;
+	unsigned char	u1;
+	unsigned char	u2;
 
 	while (n-- > 0)
 	{

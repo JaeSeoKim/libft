@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   libft_type.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/25 21:35:14 by jaeskim           #+#    #+#             */
-/*   Updated: 2021/03/19 04:59:25 by jaeskim          ###   ########.fr       */
+/*   Created: 2020/11/16 16:46:47 by jaeskim           #+#    #+#             */
+/*   Updated: 2021/03/20 11:52:04 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef LIBFT_TYPE_H
+# define LIBFT_TYPE_H
 
-/*
-** ft_strlcpy - size-bounded string copying and concatenation
-*/
+typedef long long			t_ll;
+typedef unsigned long		t_ul;
+typedef unsigned long long	t_ull;
+typedef unsigned int		t_ui;
+typedef unsigned char		t_uc;
+typedef unsigned short		t_us;
+typedef long				t_l;
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+typedef struct s_not_use
 {
-	size_t	srclen;
+	t_l			l;
+	t_ll		ll;
+	t_ul		ul;
+	t_ull		ull;
+	t_ui		ui;
+	t_uc		uc;
+	t_us		us;
+}				t_not_use;
 
-	srclen = ft_strlen(src);
-	if (srclen + 1 < size)
-	{
-		ft_memcpy(dest, src, srclen);
-		dest[srclen] = '\0';
-	}
-	else if (size != 0)
-	{
-		ft_memcpy(dest, src, size - 1);
-		dest[size - 1] = '\0';
-	}
-	return (srclen);
-}
+#endif

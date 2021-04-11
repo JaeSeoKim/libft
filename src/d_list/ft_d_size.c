@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_d_size.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/25 21:35:14 by jaeskim           #+#    #+#             */
-/*   Updated: 2021/03/19 04:59:25 by jaeskim          ###   ########.fr       */
+/*   Created: 2021/03/20 12:19:28 by jaeskim           #+#    #+#             */
+/*   Updated: 2021/03/20 12:26:42 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-** ft_strlcpy - size-bounded string copying and concatenation
-*/
-
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+int	ft_d_size(t_d_list *lst)
 {
-	size_t	srclen;
+	int		cnt;
 
-	srclen = ft_strlen(src);
-	if (srclen + 1 < size)
+	cnt = 0;
+	while (lst)
 	{
-		ft_memcpy(dest, src, srclen);
-		dest[srclen] = '\0';
+		lst = lst->next;
+		++cnt;
 	}
-	else if (size != 0)
-	{
-		ft_memcpy(dest, src, size - 1);
-		dest[size - 1] = '\0';
-	}
-	return (srclen);
+	return (cnt);
 }

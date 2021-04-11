@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_d_lstnew.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/25 21:35:14 by jaeskim           #+#    #+#             */
-/*   Updated: 2021/03/19 04:59:25 by jaeskim          ###   ########.fr       */
+/*   Created: 2021/03/20 11:55:57 by jaeskim           #+#    #+#             */
+/*   Updated: 2021/03/20 12:26:34 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-** ft_strlcpy - size-bounded string copying and concatenation
-*/
-
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+t_d_list	*ft_d_lstnew(void	*content)
 {
-	size_t	srclen;
+	t_d_list	*lst;
 
-	srclen = ft_strlen(src);
-	if (srclen + 1 < size)
-	{
-		ft_memcpy(dest, src, srclen);
-		dest[srclen] = '\0';
-	}
-	else if (size != 0)
-	{
-		ft_memcpy(dest, src, size - 1);
-		dest[size - 1] = '\0';
-	}
-	return (srclen);
+	lst = malloc(sizeof(t_d_list));
+	if (lst == NULL)
+		return (0);
+	lst->next = 0;
+	lst->prev = 0;
+	lst->content = content;
+	return (lst);
 }

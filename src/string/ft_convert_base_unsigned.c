@@ -6,7 +6,7 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 19:56:00 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/11/19 01:34:12 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/19 06:35:25 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static size_t	ft_count_digist(t_ull n, int base)
 {
-	size_t count;
+	size_t	count;
 
 	count = 0;
 	while (n)
@@ -25,7 +25,7 @@ static size_t	ft_count_digist(t_ull n, int base)
 	return (count);
 }
 
-char			*ft_convert_base_unsigned(
+char	*ft_convert_base_unsigned(
 	t_ull num,
 	const char *base_set,
 	int base)
@@ -36,7 +36,8 @@ char			*ft_convert_base_unsigned(
 	if (num == 0)
 		return (ft_strdup("0"));
 	len = ft_count_digist(num, base);
-	if (!(result = malloc(sizeof(char) * (len + 1))))
+	result = malloc(sizeof(char) * (len + 1));
+	if (result == NULL)
 		return (0);
 	result[len] = 0;
 	while (len)

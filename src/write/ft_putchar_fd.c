@@ -6,7 +6,7 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/27 07:37:02 by jaeskim           #+#    #+#             */
-/*   Updated: 2020/10/21 14:55:53 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/19 06:50:45 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	unsigned char u_c;
+	unsigned char	u_c;
 
 	u_c = c;
 	write(fd, &u_c, 1);

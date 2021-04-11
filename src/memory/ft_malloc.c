@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_malloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/25 21:35:14 by jaeskim           #+#    #+#             */
-/*   Updated: 2021/03/19 04:59:25 by jaeskim          ###   ########.fr       */
+/*   Created: 2021/03/20 12:49:35 by jaeskim           #+#    #+#             */
+/*   Updated: 2021/03/20 12:59:25 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-** ft_strlcpy - size-bounded string copying and concatenation
-*/
-
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+int	ft_malloc(void **dst, size_t size)
 {
-	size_t	srclen;
-
-	srclen = ft_strlen(src);
-	if (srclen + 1 < size)
-	{
-		ft_memcpy(dest, src, srclen);
-		dest[srclen] = '\0';
-	}
-	else if (size != 0)
-	{
-		ft_memcpy(dest, src, size - 1);
-		dest[size - 1] = '\0';
-	}
-	return (srclen);
+	*dst = malloc(size);
+	if (*dst == NULL)
+		return (0);
+	return (1);
 }
